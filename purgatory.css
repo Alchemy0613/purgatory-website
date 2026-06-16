@@ -1,0 +1,207 @@
+:root {
+  --purple: #b38bff;
+  --red: #b91c1c;
+  --text: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  background: radial-gradient(circle at center, #1a002e 0%, #000 100%);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Whispers */
+#whisper-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.whisper {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(255,255,255,0.15);
+  text-shadow: 0 0 12px rgba(255,255,255,0.3);
+  opacity: 0;
+  transition: opacity 4s ease-in-out;
+  font-family: "Cinzel", serif;
+}
+
+.whisper.glitch {
+  color: rgba(255,255,255,0.25);
+  text-shadow: 0 0 20px var(--purple);
+  transform: skewX(-4deg);
+}
+
+/* Sections */
+.pw-hero,
+.pw-about,
+.pw-why,
+.pw-hosts,
+.pw-cta {
+  position: relative;
+  z-index: 3;
+  padding: 4rem 10%;
+  text-align: center;
+}
+
+.pw-hero-title {
+  font-size: 3rem;
+  color: var(--purple);
+  text-shadow: 0 0 15px rgba(179,139,255,0.5);
+}
+
+.pw-hero-subtitle {
+  font-size: 1.5rem;
+  color: #ffb3b3;
+}
+
+.pw-hero-lore {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 1rem auto;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: var(--purple);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(179,139,255,0.5);
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #9b00ff;
+}
+
+/* Fade-in */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.host-grid {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.host-card {
+  background: rgba(0,0,0,0.4);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(179,139,255,0.3);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.host-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(179,139,255,0.6);
+}
+
+.host-img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(179,139,255,0.4);
+}
+
+.host-card.arcana {
+  width: 240px;
+  padding: 2rem;
+  background: rgba(0,0,0,0.5);
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(179,139,255,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.host-card.arcana:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(179,139,255,0.6);
+}
+
+.arcana-border {
+  border: 2px solid rgba(179,139,255,0.4);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 0 20px rgba(179,139,255,0.2);
+}
+
+.arcana-symbol {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 15px rgba(179,139,255,0.7));
+}
+
+.arcana-symbol.cat {
+  background-image: url("sigil-cat.png");
+}
+
+.arcana-symbol.raven {
+  background-image: url("sigil-raven.png");
+}
+
+/* Host Section Background Image */
+/* Adjust spacing between sections */
+.pw-hosts {
+  margin-top: 16rem; /* adds more space above Meet the Hosts */
+  margin-bottom: 2rem; /* keeps Enter the Circle close */
+}
+
+.pw-hosts::before {
+  content: "";
+  position: absolute;
+  top: -450px; /* lifts the image higher into the cushion */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("BugScrappy.jpg") center / cover no-repeat;
+  background-position-y: -400px; /* keeps faces visible */
+  opacity: 0.32;
+  filter: blur(1.5px) brightness(1.05) contrast(1.1);
+  z-index: -1;
+}
+
+@media (min-width: 1200px) {
+  .pw-hosts {
+    margin-top: 18rem; /* ensures same cushion at full width */
+  }
+  .pw-hosts::before {
+    top: -500px; /* keeps the image visible above Meet the Hosts */
+  }
+}
+
+
+
+
+
+
+
+

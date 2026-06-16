@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Ritual – Close the Circle</title>
+  <link rel="stylesheet" href="ritual.css" />
+</head>
+
+<body class="ritual-page">
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="purgatory.html">Purgatory</a>
+    <a href="afterdark.html">After‑Dark</a>
+    <a href="ritual.html">The Ritual</a>
+    <a href="stories.html">Listener Stories</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="ritual-title fade-section">
+    <h1>The Ritual</h1>
+    <p>Leave your offering to the circle.</p>
+  </header>
+
+  <!-- OFFERING FORM -->
+  <main class="ritual-block fade-section">
+    <form name="ritual" method="POST" data-netlify="true" class="ritual-form">
+      <input type="hidden" name="form-name" value="ritual" />
+
+      <label>Which path?
+        <select name="path">
+          <option>Do You Believe?</option>
+          <option>Myth or Truth?</option>
+          <option>Tell Your Tale</option>
+        </select>
+      </label>
+
+      <label>Your story
+        <textarea name="story" required></textarea>
+      </label>
+
+      <label>Email (optional)
+        <input type="email" name="email" />
+      </label>
+
+      <button type="submit" class="offer-btn">Offer it to the circle</button>
+    </form>
+  </main>
+
+  <!-- JOURNAL ENTRY -->
+  <section id="ritual-dark" class="ritual-block fade-section">
+    <h2 class="section-title">Purgatory Journal Entry</h2>
+    <p>Write what follows you. What lingers. What refuses to let go.</p>
+
+    <textarea class="journal-area" rows="12" placeholder="Your whisper..."></textarea>
+
+    <div class="ritual-links" style="margin-top:1rem;">
+      <button class="return-btn no-print" onclick="window.print()">Print Ritual</button>
+      <a href="mailto:purgatorywhispers@gmail.com" class="return-btn no-print">Submit Whisper</a>
+    </div>
+  </section>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".fade-section").forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Request a Case Addition</title>
+<style>
+  body {
+    background:#0d0d0d;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  h1{margin-bottom:10px;}
+  p{max-width:600px;line-height:1.6;}
+  form{
+    margin-top:30px;
+    max-width:600px;
+    width:100%;
+    text-align:left;
+    padding:25px;
+    border-radius:8px;
+    background:#111;
+    box-shadow:0 0 25px rgba(255,0,0,0.25);
+  }
+  label{display:block;margin-top:20px;margin-bottom:6px;font-weight:bold;}
+  input,select,textarea{
+    width:100%;padding:10px;border-radius:4px;border:none;
+    margin-bottom:10px;background:#1a1a1a;color:#fff;
+  }
+  button{
+    margin-top:20px;padding:12px 22px;border:1px solid #fff;
+    background:transparent;color:#fff;border-radius:4px;cursor:pointer;
+  }
+  button:hover{background:rgba(255,255,255,0.1);}
+  .back{display:block;margin:40px auto 0;color:#aaa;text-decoration:none;text-align:center;}
+  .back:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<h1>Request a Case Addition</h1>
+<p>If you know of a missing person, unsolved homicide, suspicious death, or unidentified individual who deserves to be added to the Red‑String Board, please submit the information below.</p>
+<p>All submissions are reviewed for accuracy, respect, and relevance. Please provide as much verified information as possible.</p>
+
+<form id="caseForm">
+  <label>Full Name of the Person</label>
+  <input type="text" name="name" required>
+
+  <label>Location (City, County, State)</label>
+  <input type="text" name="location" required>
+
+  <label>Year of Incident / Disappearance</label>
+  <input type="text" name="year">
+
+  <label>Type of Case</label>
+  <select name="type" required>
+    <option value="">Select one…</option>
+    <option value="homicide">Homicide</option>
+    <option value="missing">Missing Person</option>
+    <option value="unidentified">Unidentified Individual</option>
+    <option value="suspicious">Suspicious Death</option>
+  </select>
+
+  <label>Details (What happened?)</label>
+  <textarea name="details" rows="6" required></textarea>
+
+  <label>Your Name (optional)</label>
+  <input type="text" name="submitter">
+
+  <label>Your Email (optional)</label>
+  <input type="email" name="email">
+
+  <button type="submit">Submit Case</button>
+</form>
+
+<a href="./red-string-board-advanced.html" class="back">← Back to the Board</a>
+
+<script>
+document.getElementById("caseForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const id = "CASE-" + new Date().toISOString().slice(0,10).replace(/-/g,"") + "-" +
+             Math.random().toString(16).substring(2,6).toUpperCase();
+
+  const formData = Object.fromEntries(new FormData(this));
+  formData.caseId = id;
+
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwKE6dvjRydkt4nqONU8OrVvFkM1VgrhsImYqkkJ7AJF9D5v33KFwSjqVHVHkCzDUkVaA/exec", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const text = await res.text();
+    console.log("Server response:", text);
+
+    if (!res.ok || text.includes("ERROR")) {
+      alert("Submission failed: " + text);
+      return;
+    }
+
+    window.location.href = "case-confirmation.html?caseId=" + encodeURIComponent(id);
+
+  } catch (err) {
+    alert("Submission failed. Check console.");
+    console.error(err);
+  }
+});
+</script>
+
+</body>
+</html>
+
+
+
+

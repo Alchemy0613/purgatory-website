@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listener Stories – Shadows Shared</title>
+  <link rel="stylesheet" href="stories.css" />
+</head>
+
+<body class="stories-page">
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="purgatory.html">Purgatory</a>
+    <a href="afterdark.html">After‑Dark</a>
+    <a href="ritual.html">The Ritual</a>
+    <a href="stories.html">Listener Stories</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <header class="stories-title fade-section">
+    <h1>Listener Stories</h1>
+    <p>Your voices. Your shadows. Your truths.</p>
+  </header>
+
+  <main class="stories-block fade-section">
+    <form name="stories" method="POST" data-netlify="true" class="stories-form">
+      <input type="hidden" name="form-name" value="stories" />
+
+      <label>For which show?
+        <select name="show">
+          <option>Purgatory</option>
+          <option>After‑Dark</option>
+          <option>The Ritual</option>
+        </select>
+      </label>
+
+      <label>Subject
+        <input type="text" name="subject" required />
+      </label>
+
+      <label>Your story
+        <textarea name="story" rows="6" required></textarea>
+      </label>
+
+      <label>Email (optional)
+        <input type="email" name="email" />
+      </label>
+
+      <button type="submit" class="send-btn">Send to the Circle</button>
+    </form>
+  </main>
+</body>
+</html>
+

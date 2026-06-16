@@ -1,0 +1,195 @@
+/* ===========================
+   STORIES.CSS – SHADOWED CONFESSIONS AESTHETIC
+   =========================== */
+
+:root {
+  --stories-bg: #0a0a0f;
+  --stories-ink: #e5e5e5;
+  --stories-glow: #b38bff;
+  --stories-shadow: rgba(0,0,0,0.7);
+}
+
+/* ---------- PAGE BACKGROUND ---------- */
+.stories-page {
+  background: linear-gradient(to bottom, #000000 0%, #1a0000 40%, #8b0000 100%);
+  color: var(--stories-ink);
+  padding: 4rem 10%;
+  min-height: 100vh;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.03em;
+}
+
+
+.stories-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(179,139,255,0.08), transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: linear-gradient(to right, #000, #1a1a22);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(179,139,255,0.4);
+  box-shadow: 0 0 18px rgba(15,23,42,0.9);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar a {
+  color: var(--stories-ink);
+  text-decoration: none;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--stories-glow);
+  text-shadow: 0 0 8px var(--stories-glow), 0 0 14px var(--stories-shadow);
+}
+
+/* ---------- HEADER ---------- */
+/* ---------- HEADER ---------- */
+.stories-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #b30000; /* deep blood red */
+  text-shadow: 0 0 25px #b38bff, 0 0 60px #8b0000;
+  animation: storiesPulse 6s ease-in-out infinite;
+}
+
+.stories-title h1 {
+  font-size: 4.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- TYPEWRITER SUBTITLE ---------- */
+.stories-title p {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px rgba(179,139,255,0.6);
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #b38bff;
+  width: 0;
+  animation:
+    typewriter 8.5s steps(45, end) 1s infinite,
+    blinkCursor 0.8s step-end infinite;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes typewriter {
+  0% { width: 0; opacity: 1; }
+  75% { width: 33ch; opacity: 1; }   /* typing phase */
+  85% { width: 33ch; opacity: 1; }   /* pause for 1.5s */
+  95% { opacity: 0.6; }              /* fade out */
+  100% { width: 0; opacity: 0; }     /* reset for next loop */
+}
+
+@keyframes blinkCursor {
+  from, to { border-color: transparent; }
+  50% { border-color: #b38bff; }
+}
+
+
+/* Loop the typewriter effect */
+@keyframes repeatTypewriter {
+  0%, 90% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
+
+@keyframes storiesPulse {
+  0%,100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+
+/* ---------- FORM BLOCK ---------- */
+.stories-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,10,18,0.85);
+  border: 1px solid rgba(179,139,255,0.4);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(179,139,255,0.3);
+  margin: 3rem auto;
+  backdrop-filter: blur(4px);
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+}
+
+/* ---------- INPUTS ---------- */
+.stories-form input,
+.stories-form select,
+.stories-form textarea {
+  background: #0a0a12;
+  border: 1px solid rgba(179,139,255,0.4);
+  color: #fff;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.stories-form input:focus,
+.stories-form select:focus,
+.stories-form textarea:focus {
+  border-color: var(--stories-glow);
+  box-shadow: 0 0 12px rgba(179,139,255,0.6);
+  outline: none;
+}
+
+/* ---------- BUTTON ---------- */
+.send-btn {
+  background: var(--stories-glow);
+  color: #000;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(179,139,255,0.5);
+  margin-top: 1.5rem;
+}
+
+.send-btn:hover {
+  background: var(--stories-glow);
+  color: #000;
+  box-shadow: 0 0 25px rgba(179,139,255,0.9), 0 0 60px rgba(179,139,255,0.4);
+  transform: translateY(-3px);
+}
+
+
+/* ---------- AURA EFFECT ---------- */
+.stories-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: radial-gradient(circle at center, rgba(179,139,255,0.25), transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+}

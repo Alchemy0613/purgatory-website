@@ -1,0 +1,189 @@
+/* ================================
+   GLOBAL PAGE STYLING
+================================ */
+.archive-page {
+  position: relative;
+  background: #0a0f1a; /* deep steel blue-black */
+  color: #e6e6f0;      /* ghost white */
+  padding: 6rem 10%;
+  overflow: hidden;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ================================
+   WHISPER TEXT BEHIND PAGE
+================================ */
+.archive-page::before {
+  content: "whisper • purgatory • signal • ridge • echo • static • whisper • purgatory";
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  width: 160%;
+  font-size: 3.8rem;
+  letter-spacing: 0.45rem;
+  line-height: 1.4;
+  color: rgba(127, 140, 255, 0.08); /* soft violet ghost */
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  animation: whisperDrift 40s linear infinite;
+}
+
+@keyframes whisperDrift {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0.07;
+  }
+  50% {
+    transform: translateX(-12%) translateY(6%);
+    opacity: 0.13;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 0.07;
+  }
+}
+
+/* Make sure real content sits above whispers */
+.archive-content,
+#archiveTitle,
+.archive-subtitle {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================================
+   TYPEWRITER TITLE
+================================ */
+#archiveTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #7f8cff; /* neon violet-blue */
+  text-shadow: 0 0 10px rgba(127, 140, 255, 0.5);
+  margin-bottom: 1rem;
+  min-height: 4rem; /* prevents layout jump during typing */
+}
+
+/* Optional blinking cursor */
+.typewriter::after {
+  content: "|";
+  margin-left: 6px;
+  color: #ff4f4f;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ================================
+   SUBTITLE
+================================ */
+.archive-subtitle {
+  font-size: 1.2rem;
+  color: #c7c9d9;
+  margin-bottom: 3rem;
+  max-width: 700px;
+}
+
+/* ================================
+   ARCHIVE ENTRY CARDS
+================================ */
+.archive-entry {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid #7f8cff;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  backdrop-filter: blur(2px);
+  position: relative;
+  overflow: hidden;
+}
+
+.archive-entry:hover {
+  background: rgba(127, 140, 255, 0.08);
+  transform: translateX(8px);
+}
+
+.archive-entry::after {
+  content: "CLASSIFIED";
+  position: absolute;
+  top: 12px;
+  right: -120px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255, 79, 79, 0.18);
+  transform: rotate(-18deg);
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.archive-entry:hover::after {
+  right: 12px;
+  color: rgba(255, 79, 79, 0.32);
+}
+
+.archive-page::before {
+  content: var(--whisper-text);
+}
+
+
+/* Entry Title */
+.entry-title {
+  font-size: 1.6rem;
+  color: #e6e6f0;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Entry Description */
+.entry-desc {
+  font-size: 1rem;
+  color: #c7c9d9;
+  margin-bottom: 1rem;
+}
+
+/* Entry Link */
+.entry-link {
+  color: #ff4f4f; /* ember red */
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.entry-link:hover {
+  color: #ff7b7b;
+  text-shadow: 0 0 6px rgba(255, 79, 79, 0.6);
+}
+
+.archive-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("fog.png") center / cover no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 1;
+  animation: fogDrift 60s linear infinite;
+}
+
+@keyframes fogDrift {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-8%); }
+  100% { transform: translateX(0); }
+}
+
+.static-flicker {
+  filter: contrast(1.2) brightness(1.15);
+  animation: flickerFlash 0.12s;
+}
+
+@keyframes flickerFlash {
+  0% { opacity: 1; }
+  50% { opacity: 0.85; }
+  100% { opacity: 1; }
+}

@@ -1,0 +1,191 @@
+/* ===========================
+   RITUAL.CSS – GRIM CEREMONIAL AESTHETIC
+   =========================== */
+
+:root {
+  --ritual-bg: #0a0a0f;
+  --ritual-ink: #e5e5e5;
+  --ritual-blood: #8b0000;
+  --ritual-glow: #b38bff;
+  --ritual-shadow: rgba(0,0,0,0.7);
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: linear-gradient(to right, #000, #1a1a22);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(179,139,255,0.4);
+  box-shadow: 0 0 18px rgba(15,23,42,0.9);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar a {
+  color: var(--ritual-ink);
+  text-decoration: none;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--ritual-glow);
+  text-shadow: 0 0 8px var(--ritual-glow), 0 0 14px var(--ritual-blood);
+}
+
+/* ---------- PAGE BACKGROUND ---------- */
+.ritual-page {
+  background: radial-gradient(circle at top, #1a1a22, #000);
+  color: var(--ritual-ink);
+  padding: 4rem 10%;
+  min-height: 100vh;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- SECTION HEADERS ---------- */
+.ritual-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--ritual-glow);
+  text-shadow: 0 0 20px var(--ritual-glow);
+  animation: ritualPulse 6s ease-in-out infinite;
+}
+
+@keyframes ritualPulse {
+  0%,100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.ritual-title h1 {
+  font-size: 3.5rem;
+}
+
+.ritual-title p {
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+
+/* ---------- RITUAL BLOCK ---------- */
+.ritual-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,10,18,0.85);
+  border: 1px solid rgba(179,139,255,0.4);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(179,139,255,0.3);
+  margin: 3rem auto;
+  backdrop-filter: blur(4px);
+  max-width: 800px;
+  width: 90%;
+}
+
+
+/* ---------- INPUTS ---------- */
+.ritual-form input,
+.ritual-form select,
+.ritual-form textarea {
+  background: #0a0a12;
+  border: 1px solid rgba(179,139,255,0.4);
+  color: #fff;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.ritual-form input:focus,
+.ritual-form select:focus,
+.ritual-form textarea:focus {
+  border-color: var(--ritual-glow);
+  box-shadow: 0 0 12px rgba(179,139,255,0.6);
+  outline: none;
+}
+
+/* ---------- BUTTON ---------- */
+.offer-btn {
+  background: var(--ritual-blood);
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(185,28,28,0.5);
+  margin-top: 1.5rem;
+}
+
+.offer-btn:hover {
+  background: var(--ritual-glow);
+  box-shadow: 0 0 20px rgba(179,139,255,0.9);
+  transform: translateY(-3px);
+}
+
+/* ---------- JOURNAL AREA ---------- */
+.journal-area {
+  background: #020308;
+  border: 1px solid rgba(179,139,255,0.4);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(59,130,246,0.2);
+  color: #fff;
+  width: 100%;
+  min-height: 250px;
+  resize: vertical;
+}
+
+.ritual-form,
+.journal-area {
+  width: 100%;
+}
+
+
+/* ---------- LINKS ---------- */
+.ritual-links a,
+.return-btn {
+  color: var(--ritual-glow);
+  text-decoration: none;
+  font-family: "Cinzel", serif;
+  margin-right: 1.5rem;
+  transition: 0.3s ease;
+  background: transparent;
+  border: 1px solid var(--ritual-glow);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.ritual-links a:hover,
+.return-btn:hover {
+  text-shadow: 0 0 10px var(--ritual-glow);
+  background: var(--ritual-glow);
+  color: #000;
+}
+
+/* ---------- FADE-IN ---------- */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

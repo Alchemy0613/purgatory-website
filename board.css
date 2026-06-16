@@ -1,0 +1,416 @@
+/* GENERAL */
+
+body {
+    margin: 0;
+    background: #050509;
+    color: #f5f5f5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto; /* FIXED SCROLLING */
+}
+
+/* SIDE NAVIGATION */
+
+.side-nav {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 2000;
+}
+
+.side-btn {
+    padding: 10px 14px;
+    background: #111;
+    border: 1px solid #550000;
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.side-btn:hover {
+    background: #b30000;
+    border-color: #ff4d4d;
+}
+
+/* OLD TOP BAR (NO LONGER USED BUT SAFE TO KEEP FOR OTHER PAGES) */
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(5, 5, 10, 0.95);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    z-index: 1000;
+    border-bottom: 1px solid #330000;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #222;
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #444;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: #b30000;
+    border-color: #ff4d4d;
+}
+
+.nav-btn.special {
+    background: #b30000;
+    border-color: #ff4d4d;
+    font-weight: 600;
+}
+
+/* BOARD */
+
+#board {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/* STRINGS LAYER */
+
+#strings {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+/* POLAROIDS */
+
+.polaroid {
+    position: absolute;
+    width: 160px;
+    background: #fdfdfd;
+    color: #111;
+    padding: 8px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+    cursor: grab;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.polaroid img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
+.polaroid .name {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Glow behind polaroids */
+
+.glow {
+    position: absolute;
+    width: 190px;
+    height: 210px;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.35), transparent 70%);
+    filter: blur(4px);
+    z-index: 1;
+}
+
+/* Hover effect */
+
+.polaroid:hover {
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.9);
+    transform: scale(1.03);
+}
+
+/* Reveal animation */
+
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* MODAL */
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+}
+
+#modal-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    max-width: 90%;
+    background: #111;
+    border: 2px solid #b30000;
+    border-radius: 6px;
+    padding: 20px;
+    color: #f5f5f5;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#modal-box img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#modal-title {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: #ff4d4d;
+}
+
+#modal-description {
+    font-family: "Courier New", monospace;
+    white-space: pre-wrap;
+    min-height: 80px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+#modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #ff4d4d;
+}
+
+#modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#modal-box.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* COMING SOON PAGE */
+
+.coming-body {
+    margin: 0;
+    background: radial-gradient(circle at top, #330000 0, #050509 55%, #000 100%);
+    color: #f5f5f5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.coming-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.coming-container h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.coming-text {
+    font-size: 16px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    font-family: "Courier New", monospace;
+}
+
+.coming-links {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* RANT WALL */
+
+.rant-body {
+    margin: 0;
+    background: radial-gradient(circle at top, #220000 0, #050509 55%, #000 100%);
+    color: #f5f5f5;
+}
+
+.rant-main {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.rant-intro h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.rant-intro p {
+    font-size: 15px;
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.rant-card {
+    background: rgba(10, 10, 15, 0.95);
+    border: 1px solid #330000;
+    border-left: 4px solid #b30000;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+}
+
+.rant-card h2 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+    color: #ff4d4d;
+}
+
+.rant-meta {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0 0 10px 0;
+    font-family: "Courier New", monospace;
+}
+
+.rant-body-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+}
+
+.ryder-notes,
+.ryder-reacts {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid #444;
+}
+
+.ryder-notes h3,
+.ryder-reacts h3 {
+    margin: 0 0 6px 0;
+    font-size: 14px;
+    color: #ffb3b3;
+}
+
+.ryder-notes p,
+.ryder-reacts p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* SUBMIT A RANT */
+
+.submit-rant {
+    margin-bottom: 30px;
+}
+
+.submit-rant textarea {
+    width: 100%;
+    height: 120px;
+    background: #111;
+    border: 1px solid #550000;
+    color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.submit-rant button {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: #b30000;
+    border: 1px solid #ff4d4d;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-rant button:hover {
+    background: #ff1a1a;
+}
+
+/* GHOST WHISPERS */
+
+#rant-whispers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.rant-whisper {
+    position: absolute;
+    color: rgba(255, 80, 80, 0.35); /* BRIGHTER RED */
+    font-family: "Courier New", monospace;
+    font-size: 26px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    opacity: 0;
+    animation: whisperFade 4s ease forwards;
+}
+
+@keyframes whisperFade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Typewriter whispers glow more */
+.typewriter-whisper {
+    color: rgba(255, 120, 120, 0.55);
+    text-shadow: 0 0 12px rgba(255, 50, 50, 0.9);
+}

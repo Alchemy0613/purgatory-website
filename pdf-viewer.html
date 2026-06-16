@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case File Viewer | After‑Dark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="after-dark.css" />
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">AFTER<span>DARK</span></div>
+      <nav class="nav-links">
+        <a href="after-dark.html">Home</a>
+        <a href="cold-cases.html">Cold Cases</a>
+        <a href="purgatory.html" class="return-link">Return to Purgatory</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-title">Case File Viewer</div>
+        <div class="hero-subtitle">FBI‑Style Document Reader</div>
+        <div class="hero-line">Declassified. Redacted. Archived. Now visible.</div>
+      </section>
+
+      <!-- META BAR -->
+      <section>
+        <div class="section-label">File Metadata</div>
+        <div class="section-body" style="display:flex; flex-wrap:wrap; gap:1.5rem; font-size:0.9rem;">
+          <div><strong>File Name:</strong> <span>[case-file.pdf]</span></div>
+          <div><strong>Classification:</strong> <span>Declassified / Redacted</span></div>
+          <div><strong>Pages:</strong> <span>[##]</span></div>
+          <div><strong>Source:</strong> <span>[Agency / Archive]</span></div>
+        </div>
+      </section>
+
+      <!-- VIEWER LAYOUT -->
+      <section style="margin-top:2rem;">
+        <div class="two-col">
+
+          <!-- LEFT: PAGE LIST / NAV -->
+          <aside style="background:#0b0b12; border:1px solid var(--border-soft); border-radius:0.8rem; padding:1rem; max-height:520px; overflow-y:auto;">
+            <div class="section-label">Pages</div>
+            <ul class="bullet-list">
+              <li>Page 1 — Cover / Title</li>
+              <li>Page 2 — Summary</li>
+              <li>Page 3 — Timeline</li>
+              <li>Page 4 — Witness Statements</li>
+              <li>Page 5 — Evidence Log</li>
+              <li>Page 6 — Redacted Section</li>
+              <li>Page 7 — Closing Notes</li>
+            </ul>
+          </aside>
+
+          <!-- RIGHT: PDF FRAME -->
+          <div>
+            <div class="section-label">Document</div>
+            <div style="
+              background:#050509;
+              border-radius:0.8rem;
+              border:1px solid var(--border-soft);
+              box-shadow:var(--shadow-soft);
+              padding:0.8rem;
+            ">
+              <!-- TOOLBAR -->
+              <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                padding:0.4rem 0.6rem 0.7rem;
+                border-bottom:1px solid var(--border-soft);
+                margin-bottom:0.7rem;
+                font-size:0.8rem;
+                color:var(--text-muted);
+              ">
+                <div>
+                  <strong>Viewing:</strong> <span>[case-file.pdf]</span>
+                </div>
+                <div style="display:flex; gap:0.6rem; align-items:center;">
+                  <span>Zoom:</span>
+                  <button style="padding:0.2rem 0.5rem; font-size:0.75rem;">−</button>
+                  <span>100%</span>
+                  <button style="padding:0.2rem 0.5rem; font-size:0.75rem;">+</button>
+                  <button style="padding:0.2rem 0.7rem; font-size:0.75rem;">Download</button>
+                </div>
+              </div>
+
+              <!-- PDF IFRAME (replace src with real file) -->
+              <div style="height:420px; border-radius:0.6rem; overflow:hidden; background:#000;">
+                <iframe
+                  src="files/sample-case-file.pdf"
+                  title="Case File PDF"
+                  style="width:100%; height:100%; border:none;"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- NOTES -->
+      <section style="margin-top:2rem;">
+        <div class="section-label">Investigator Notes</div>
+        <div class="section-body">
+          <p>[Use this area to summarize what’s important in the document, highlight contradictions, or flag pages for deeper review.]</p>
+        </div>
+      </section>
+
+      <!-- RETURN -->
+      <section style="margin-top:2rem;">
+        <a href="after-dark.html" class="return-btn">← Back to After‑Dark</a>
+        <a href="purgatory.html" class="return-btn" style="margin-left:1rem;">← Return to Purgatory</a>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>&copy; After‑Dark. Some stories don’t fade with time.</div>
+      <div class="footer-line">In memory of the man who taught me to pay attention.</div>
+    </footer>
+
+  </div>
+</body>
+</html>

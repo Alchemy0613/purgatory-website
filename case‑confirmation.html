@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Case Received — Thank You</title>
+<style>
+  body {
+    background:#0d0d0d;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    animation:fadeIn 1.2s ease-in;
+  }
+  @keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+  }
+  h1 {
+    font-size:2.2em;
+    margin-bottom:10px;
+    text-shadow:0 0 15px rgba(255,0,0,0.4);
+  }
+  p {
+    max-width:600px;
+    line-height:1.6;
+    font-size:1.1em;
+  }
+  a {
+    margin-top:40px;
+    color:#aaa;
+    text-decoration:none;
+    border:1px solid #aaa;
+    padding:10px 20px;
+    border-radius:6px;
+    transition:0.3s;
+  }
+  a:hover {
+    color:#fff;
+    border-color:#fff;
+    box-shadow:0 0 15px rgba(255,0,0,0.4);
+  }
+</style>
+</head>
+<body>
+
+<h1>Case Received</h1>
+<p>
+  Thank you for submitting a case to the <strong>After Dark Black Files</strong>.  
+  Your information has been received and logged.  
+  Our team will review it and, if approved, add it to the Red‑String Board.
+</p>
+
+<a href="./red-string-board-advanced.html">← Return to the Board</a>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const caseId = params.get("caseId");
+  if (caseId) {
+    const p = document.createElement("p");
+    p.textContent = "Your Case ID: " + caseId;
+    document.body.appendChild(p);
+  }
+</script>
+
+</body>
+</html>

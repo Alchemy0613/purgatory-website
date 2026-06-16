@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Red‑String Board</title>
+    <link rel="stylesheet" href="board.css">
+</head>
+<body>
+
+    <!-- TOP NAV -->
+    <header class="top-bar">
+        <a href="afterdark.html" class="nav-btn">⬅ Return to After Dark</a>
+        <a href="purgatory.html" class="nav-btn">Return to Purgatory ➜</a>
+        <a href="coming-soon.html" class="nav-btn special">Request a Case Addition</a>
+    </header>
+
+    <!-- STRING LAYER -->
+    <svg id="strings"></svg>
+
+    <!-- MAIN BOARD -->
+    <div id="board"></div>
+
+    <!-- MODAL -->
+    <div id="modal-overlay" class="hidden"></div>
+
+    <div id="modal-box" class="hidden">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" src="">
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+    </div>
+
+    <script src="board.js" defer></script>
+</body>
+</html>
+

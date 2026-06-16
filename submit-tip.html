@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Submit a Tip | After‑Dark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="after-dark.css" />
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- UNIVERSAL HEADER -->
+    <header>
+      <div class="logo">AFTER<span>DARK</span></div>
+      <nav class="nav-links">
+        <a href="after-dark.html">Home</a>
+        <a href="mafia.html">Mafia</a>
+        <a href="serial-killers.html">Serial Killers</a>
+        <a href="suspicious-deaths.html">Suspicious Deaths</a>
+        <a href="cold-cases.html">Cold Cases</a>
+        <a href="small-town-shadows.html">Shadows</a>
+        <a href="submit-tip.html">Submit a Tip</a>
+        <a href="purgatory.html" class="return-link">Return to Purgatory</a>
+        
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-title">Submit a Tip</div>
+        <div class="hero-subtitle">Anonymous. Unfiltered. Untraceable.</div>
+        <div class="hero-line">Your information could change everything.</div>
+      </section>
+
+      <!-- INTRO -->
+      <section>
+        <div class="section-label">Confidential</div>
+        <h2 class="section-title">Your Identity Is Not Required</h2>
+        <div class="section-body">
+          <p>
+            This form does not ask for your name, email, or any identifying information.  
+            You can share what you know — or what you suspect — without fear.
+          </p>
+          <p>
+            Every tip is reviewed manually.  
+            Every detail matters.
+          </p>
+        </div>
+      </section>
+
+      <!-- TIP FORM -->
+      <section>
+        <div class="section-label">Anonymous Form</div>
+        <h2 class="section-title">Share What You Know</h2>
+
+        <form action="#" method="POST" enctype="multipart/form-data" style="margin-top:1.5rem;">
+
+          <!-- TIP CATEGORY -->
+          <label style="display:block; margin-bottom:1rem; color:var(--text-muted);">
+            Tip Category:
+            <select name="category" style="width:100%; padding:0.7rem; margin-top:0.4rem; background:#0b0b12; border:1px solid var(--border-soft); color:var(--text-main); border-radius:0.4rem;">
+              <option value="mafia">Mafia / Organized Crime</option>
+              <option value="serial">Serial Killer Activity</option>
+              <option value="suspicious">Suspicious Death</option>
+              <option value="missing">Missing Person</option>
+              <option value="shadow">Small‑Town Shadows</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <!-- TIP TEXT -->
+          <label style="display:block; margin-bottom:1rem; color:var(--text-muted);">
+            Your Tip (No personal info required):
+            <textarea name="tip" rows="8" placeholder="Type everything you know, saw, heard, or suspect..." style="width:100%; padding:0.9rem; margin-top:0.4rem; background:#0b0b12; border:1px solid var(--border-soft); color:var(--text-main); border-radius:0.4rem;"></textarea>
+          </label>
+
+          <!-- FILE UPLOAD -->
+          <label style="display:block; margin-bottom:1rem; color:var(--text-muted);">
+            Upload Evidence (optional):
+            <input type="file" name="evidence" style="margin-top:0.4rem; color:var(--text-muted);" />
+          </label>
+
+          <!-- SUBMIT BUTTON -->
+          <button type="submit" style="
+            padding:0.9rem 2rem;
+            background:radial-gradient(circle at top left, rgba(179,33,43,0.4), rgba(5,5,9,0.95));
+            border:1px solid var(--accent-red-soft);
+            border-radius:999px;
+            color:#fff;
+            text-transform:uppercase;
+            letter-spacing:0.15em;
+            cursor:pointer;
+            transition:0.2s ease;
+            box-shadow:0 0 18px rgba(179,33,43,0.4);
+          ">
+            Submit Tip
+          </button>
+
+        </form>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <section style="margin-top:2rem;">
+        <div class="section-label">Note</div>
+        <div class="section-body">
+          <p>
+            This form is for informational purposes only.  
+            If you believe someone is in immediate danger, contact local authorities.
+          </p>
+        </div>
+      </section>
+
+      <!-- RETURN BUTTONS -->
+      <section style="margin-top:2rem;">
+        <a href="after-dark.html" class="return-btn">← Back to After‑Dark</a>
+        <a href="purgatory.html" class="return-btn" style="margin-left:1rem;">← Return to Purgatory</a>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>&copy; After‑Dark. Some stories don’t fade with time.</div>
+      <div class="footer-line">In memory of the man who taught me to pay attention.</div>
+    </footer>
+
+  </div>
+</body>
+</html>
